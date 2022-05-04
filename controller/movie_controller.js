@@ -6,6 +6,7 @@ exports.createMovie = async (req, res) => {
         const releaseDate = new Date(releasedOn);
 
         let movie = await model.findOne({ movieName });
+    
         if (movie)
             return res.json("Record already exists")
 
@@ -70,7 +71,7 @@ exports.updateMovie = async (req, res) => {
         let { movieName, rating, cast, genre, releasedOn } = req.body;
 
         const releaseDate = new Date(releasedOn);
-
+       
         let movie = await model.findOne({ movieName });
 
         if (!movie) return res.json("Record doesn't exists");
